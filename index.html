@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Mixtape</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #222; color: white; text-align: center; }
+        .container { width: 80%; margin: auto; }
+        input, button { margin: 10px; padding: 10px; }
+        .playlist { list-style: none; padding: 0; }
+        .playlist li { background: #444; padding: 5px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Mixtape</h1>
+        <input type="text" id="videoUrl" placeholder="Enter YouTube URL">
+        <button onclick="addVideo()">Add to Mixtape</button>
+        <ul class="playlist" id="playlist"></ul>
+        <button onclick="makePlaylist()">Make Playlist</button>
+    </div>
+
+    <script>
+        let videos = [];
+        function getYouTubeID(url) {
+            let match = url.match(/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([\w-]+)/) ||
+                        url.match(/(?:https?:\/\/)?(?:www\.)?youtu\.be\/([\w-]+)/);
+            return match ? match[1] : null;
+        }
+        function addVideo() {
+            let url = document.getElementById('videoUrl').value;
+            let videoId = getYouTubeID(url);
+            if (videoId) {
+                videos.push(videoId);
+                let li = document.createElement('li');
+                li.textContent = `Video: ${videoId}`;
+                document.getElementById('playlist').appendChild(li);
+                document.getElementById('videoUrl').value = '';
+            } else {
+                alert('Invalid YouTube URL');
+            }
+        }
+        function makePlaylist() {
+            if (videos.length > 0) {
+                localStorage.setItem('mixtape', JSON.stringify(videos));
+                window.location.href = 'player.html';
+            } else {
+                alert('Add at least one video to create a mixtape!');
+            }
+        }
+    </script>
+</body>
+</html>
