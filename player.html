@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixtape Player</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #222; color: white; text-align: center; }
+        .controls button { margin: 10px; padding: 10px; }
+    </style>
+    <script>
+        let videos = JSON.parse(localStorage.getItem('mixtape')) || [];
+        let currentIndex = 0;
+        let player;
+        function onYouTubeIframeAPIReady() {
+            if (videos.length > 0) {
+                player = new YT.Player('player', {
+                    height: '360',
+                    width: '640',
+                    videoId: videos[currentIndex],
+                    playerVars: { 'autoplay': 1, 'controls': 1 },
+                    events: { 'onStateChange': onPlayerStateChange }
+                });
+            }
+        }
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                nextVideo();
+            }
+        }
+        function playVideo() { player.playVideo(); }
+        function pauseVideo() { player.pauseVideo(); }
+        function nextVideo() {
+            if (currentIndex < videos.length - 1) {
+                currentIndex++;
+                player.loadVideoById(videos[currentIndex]);
+            }
+        }
+        function prevVideo() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                player.loadVideoById(videos[currentIndex]);
+            }
+        }
+        function ejectTape() {
+            localStorage.removeItem('mixtape');
+            window.location.href = 'index.html';
+        }
+    </script>
+</head>
+<body>
+    <h1>Mixtape Player</h1>
+    <div id="player"></div>
+    <div class="controls">
+        <button onclick="playVideo()">Play</button>
+        <button onclick="pauseVideo()">Pause</button>
+        <button onclick="prevVideo()">Previous</button>
+        <button onclick="nextVideo()">Next</button>
+        <button onclick="ejectTape()">Eject Tape</button>
+    </div>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
