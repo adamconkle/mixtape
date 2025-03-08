@@ -27,7 +27,7 @@
                 });
             }
         }
-        function onPlayerStateChange(event) {
+                function onPlayerStateChange(event) {
             if (event.data === YT.PlayerState.ENDED) {
                 nextVideo();
             } else if (event.data === YT.PlayerState.PLAYING) {
@@ -38,25 +38,21 @@
                 updatePlayPauseButton();
             }
         }
-
+        
         function togglePlayPause() {
-            if (isPlaying) {
-            player.pauseVideo();
-        } else {
-            player.playVideo();
+            if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+                player.pauseVideo();
+                isPlaying = false;
+            } else {
+                player.playVideo();
+                isPlaying = true;
+            }
+            updatePlayPauseButton();
         }
-        // Immediately update button after toggling
-        setTimeout(updatePlayPauseButton, 100);
-        }
-
-
+        
         function updatePlayPauseButton() {
             document.getElementById('playPauseButton').textContent = isPlaying ? 'Pause' : 'Play';
         }
-
-
-        function playVideo() { player.playVideo(); }
-        function pauseVideo() { player.pauseVideo(); }
         function nextVideo() {
             if (currentIndex < videos.length - 1) {
                 currentIndex++;
