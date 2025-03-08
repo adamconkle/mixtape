@@ -22,7 +22,7 @@
                     height: '0',
                     width: '0',
                     videoId: videos[currentIndex],
-                    playerVars: { 'autoplay': 1, 'controls': 0, 'mute': 1 }, // Mute for autoplay in all browsers
+                    playerVars: { 'autoplay': 1, 'controls': 0 },  // Removed mute
                     events: { 'onStateChange': onPlayerStateChange }
                 });
             }
@@ -78,7 +78,6 @@
             if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
                 player.playVideo();
             }
-
         });
     </script>
 </head>
