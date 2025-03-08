@@ -11,6 +11,6 @@ button {
 }
 
 button:hover {
-  background-color: #e76b50;
   border: 1px inset #b3867b;
+  cursor: pointer;
 }
