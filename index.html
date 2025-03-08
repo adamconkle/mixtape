@@ -34,7 +34,7 @@
             if (videoId) {
                 videos.push(videoId);
                 let li = document.createElement('li');
-                li.textContent = `Video: ${videoId}`;
+                li.textContent = `Video: ${videoId}`;                     // edit to display URL
                 document.getElementById('playlist').appendChild(li);
                 document.getElementById('videoUrl').value = '';
             } else {
