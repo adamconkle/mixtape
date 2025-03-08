@@ -7,10 +7,11 @@
 
 button {
   background-color: #e76b50;
-  border: 2px outset #b3867b;
+  border: 3px outset #b3867b;
+  border-radius: 5px;
 }
 
 button:hover {
-  border: 2px inset #b3867b;
+  border: 3px inset #b3867b;
   cursor: pointer;
 }
