@@ -17,7 +17,6 @@
         let isPlaying = false;
 
         function onYouTubeIframeAPIReady() {
-            updatePlayPauseButton(); // Ensure button is updated on load
             if (videos.length > 0) {
                 player = new YT.Player('player', {
                     height: '0',
@@ -32,13 +31,13 @@
         function onPlayerStateChange(event) {
             if (event.data === YT.PlayerState.ENDED) {
                 nextVideo();
-            }
+            } 
             isPlaying = (event.data === YT.PlayerState.PLAYING);
             updatePlayPauseButton();
         }
 
         function togglePlayPause() {
-            if (!player) return; // Prevent errors if player is not initialized yet
+            if (!player) return;
 
             let state = player.getPlayerState();
             if (state === YT.PlayerState.PLAYING) {
@@ -49,7 +48,11 @@
         }
 
         function updatePlayPauseButton() {
-            document.getElementById('playPauseButton').textContent = isPlaying ? 'Pause' : 'Play';
+            const playPauseButton = document.getElementById('playPauseButton');
+            if (player) {
+                // Update the button text based on whether the video is playing or paused
+                playPauseButton.textContent = (isPlaying ? 'Pause' : 'Play');
+            }
         }
 
         function nextVideo() {
