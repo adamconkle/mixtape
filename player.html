@@ -17,6 +17,7 @@
         let isPlaying = false;
 
         function onYouTubeIframeAPIReady() {
+            updatePlayPauseButton();\
             if (videos.length > 0) {
                 player = new YT.Player('player', {
                     height: '0',
@@ -27,28 +28,26 @@
                 });
             }
         }
-                function onPlayerStateChange(event) {
+        function onPlayerStateChange(event) {
             if (event.data === YT.PlayerState.ENDED) {
                 nextVideo();
-            } else if (event.data === YT.PlayerState.PLAYING) {
-                isPlaying = true;
-                updatePlayPauseButton();
-            } else if (event.data === YT.PlayerState.PAUSED) {
-                isPlaying = false;
+            } 
+            isPlaying = (event.data === YT.PlayerState.PLAYING);
                 updatePlayPauseButton();
             }
-        }
+
         
         function togglePlayPause() {
-            if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+            if (!player) return; // Prevent errors if player is not initialized yet
+
+            let state = player.getPlayerState();
+            if (state === YT.PlayerState.PLAYING) {
                 player.pauseVideo();
-                isPlaying = false;
-            } else {
+            } else if (state === YT.PlayerState.PAUSED || state === YT.PlayerState.ENDED) {
                 player.playVideo();
-                isPlaying = true;
             }
-            updatePlayPauseButton();
         }
+            
         
         function updatePlayPauseButton() {
             document.getElementById('playPauseButton').textContent = isPlaying ? 'Pause' : 'Play';
