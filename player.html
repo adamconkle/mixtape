@@ -39,6 +39,19 @@
             }
         }
 
+        function togglePlayPause() {
+            if (isPlaying) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        }
+
+        function updatePlayPauseButton() {
+            document.getElementById('playPauseButton').textContent = isPlaying ? 'Pause' : 'Play';
+        }
+
+
         function playVideo() { player.playVideo(); }
         function pauseVideo() { player.pauseVideo(); }
         function nextVideo() {
@@ -64,8 +77,7 @@
     <h1>Mixtape Player</h1>
     <div id="player"></div>
     <div class="controls">
-        <button onclick="playVideo()">Play</button>
-        <button onclick="pauseVideo()">Pause</button>
+        <button id="playPauseButton" onclick="togglePlayPause()">Play</button>
         <button onclick="prevVideo()">Previous</button>
         <button onclick="nextVideo()">Next</button>
         <button onclick="ejectTape()">Eject Tape</button>
