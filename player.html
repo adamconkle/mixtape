@@ -41,11 +41,14 @@
 
         function togglePlayPause() {
             if (isPlaying) {
-                player.pauseVideo();
-            } else {
-                player.playVideo();
-            }
+            player.pauseVideo();
+        } else {
+            player.playVideo();
         }
+        // Immediately update button after toggling
+        setTimeout(updatePlayPauseButton, 100);
+        }
+
 
         function updatePlayPauseButton() {
             document.getElementById('playPauseButton').textContent = isPlaying ? 'Pause' : 'Play';
