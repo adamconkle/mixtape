@@ -22,7 +22,7 @@
                     height: '0',
                     width: '0',
                     videoId: videos[currentIndex],
-                   // playerVars: { 'autoplay': 1, 'controls': 0, 'mute': 1 }, // Mute for autoplay in all browsers
+                    playerVars: { 'autoplay': 1, 'controls': 0, 'mute': 1 }, // Mute for autoplay in all browsers
                     events: { 'onStateChange': onPlayerStateChange }
                 });
             }
@@ -72,13 +72,13 @@
             localStorage.removeItem('mixtape');
             window.location.href = 'index.html';
         }
-/*
+
         // Ensure video starts playing on user interaction (Firefox/Safari)
         window.addEventListener('click', function() {
             if (player && player.getPlayerState() !== YT.PlayerState.PLAYING) {
                 player.playVideo();
             }
-*/
+
         });
     </script>
 </head>
