@@ -17,7 +17,7 @@
         let isPlaying = false;
 
         function onYouTubeIframeAPIReady() {
-            updatePlayPauseButton();\
+            updatePlayPauseButton(); // Ensure button is updated on load
             if (videos.length > 0) {
                 player = new YT.Player('player', {
                     height: '0',
@@ -28,15 +28,15 @@
                 });
             }
         }
+
         function onPlayerStateChange(event) {
             if (event.data === YT.PlayerState.ENDED) {
                 nextVideo();
-            } 
-            isPlaying = (event.data === YT.PlayerState.PLAYING);
-                updatePlayPauseButton();
             }
+            isPlaying = (event.data === YT.PlayerState.PLAYING);
+            updatePlayPauseButton();
+        }
 
-        
         function togglePlayPause() {
             if (!player) return; // Prevent errors if player is not initialized yet
 
@@ -47,28 +47,29 @@
                 player.playVideo();
             }
         }
-            
-        
+
         function updatePlayPauseButton() {
             document.getElementById('playPauseButton').textContent = isPlaying ? 'Pause' : 'Play';
         }
+
         function nextVideo() {
             if (currentIndex < videos.length - 1) {
                 currentIndex++;
                 player.loadVideoById(videos[currentIndex]);
             }
         }
+
         function prevVideo() {
             if (currentIndex > 0) {
                 currentIndex--;
                 player.loadVideoById(videos[currentIndex]);
             }
         }
+
         function ejectTape() {
             localStorage.removeItem('mixtape');
             window.location.href = 'index.html';
         }
-        
     </script>
 </head>
 <body>
