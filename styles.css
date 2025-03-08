@@ -7,4 +7,10 @@
 
 button {
   background-color: #e76b50;
+  border: 1px outset #b3867b;
+}
+
+button:hover {
+  background-color: #e76b50;
+  border: 1px inset #b3867b;
 }
