@@ -3,7 +3,7 @@
   #bea6a0 light brown
   #b3867b dark brown
   #e76b50 orange
-*/
+
 
 button {
   background-color: #e76b50;
@@ -15,7 +15,7 @@ button:hover {
   border: 3px inset #b3867b;
   cursor: pointer;
 }
-
+*/
 
 
 
@@ -43,7 +43,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: url('https://cdn2.vectorstock.com/i/1000x1000/24/01/synth-wave-retro-grid-background-synthwave-80s-vector-25372401.jpg');
-    opacity: 0.05;
+    opacity: 0.9;
     z-index: 0;
     pointer-events: none;
 }
