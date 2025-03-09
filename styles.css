@@ -40,16 +40,18 @@ body {
 body::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background: url('https://cdn5.vectorstock.com/i/1000x1000/71/54/synth-wave-retro-grid-background-synthwave-80s-vector-27127154.jpg');
+    background-size: cover;
+    background-position: center;
     opacity: 0.8;
     z-index: -1;
     pointer-events: none;
 }
+
 
 /* Neon Glow for Title */
 h1 {
