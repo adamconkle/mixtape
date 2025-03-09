@@ -49,7 +49,7 @@ input {
 }
 
 img {
-    box-shadow: 0px 0px 10px #ff66c4, 0px 0px 20px #ff66c4;
+    drop-shadow: 0px 0px 10px #ff66c4, 0px 0px 20px #ff66c4;
 }
 
 /* Cassette Player Box */
