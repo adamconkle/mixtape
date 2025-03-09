@@ -42,10 +42,14 @@ h1 {
 input {
   background-color: #B8C4D4;
   color: #0B0519;
-  box-shadow: 0px 0px 10px #B8C4D4, 0px 0px 20px #B8C4D4;
+  box-shadow: 0px 0px 10px #ff66c4, 0px 0px 20px #ff66c4;
   border: none;
   border-radius: 5px;
   width: 70%;
+}
+
+img {
+    box-shadow: 0px 0px 10px #ff66c4, 0px 0px 20px #ff66c4;
 }
 
 /* Cassette Player Box */
