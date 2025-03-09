@@ -99,6 +99,6 @@ h1 {
 }
 
 body {
-    animation: crtFlicker 0.1s infinite;
+    animation: crtFlicker 0.5s infinite;
 }
 
