@@ -1,24 +1,3 @@
-/* COLOR PALETTE
-  #fff5f0 beige
-  #bea6a0 light brown
-  #b3867b dark brown
-  #e76b50 orange
-
-
-button {
-  background-color: #e76b50;
-  border: 3px outset #b3867b;
-  border-radius: 5px;
-}
-
-button:hover {
-  border: 3px inset #b3867b;
-  cursor: pointer;
-}
-*/
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
@@ -62,6 +41,9 @@ h1 {
 
 input {
   background-color: #B8C4D4;
+  border: none;
+  border-radius: 5px;
+  width: 70%;
 }
 
 /* Cassette Player Box */
