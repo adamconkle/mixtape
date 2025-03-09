@@ -60,7 +60,7 @@ img {
 /* Glowing Buttons */
 button {
     background: linear-gradient(45deg, #ff66c4, #ffcc00);
-    border: 2px solid #fff;
+    border: 2px outset #fff;
     color: #000;
     padding: 15px 20px;
     font-size: 1rem;
@@ -76,6 +76,7 @@ button {
 button:hover {
     background: #ffcc00;
     color: #000;
+    border: 2px inset #fff;
     box-shadow: 0px 0px 20px #ffcc00, 0px 0px 40px #ff66c4;
 }
 
