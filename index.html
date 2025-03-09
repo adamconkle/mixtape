@@ -30,15 +30,30 @@
                         url.match(/(?:https?:\/\/)?(?:www\.)?youtu\.be\/([\w-]+)/);
             return match ? match[1] : null;
         }
+        let trackNumber = 1;  // Initialize a counter for track numbers
+
         function addVideo() {
             let url = document.getElementById('videoUrl').value;
             let videoId = getYouTubeID(url);
             if (videoId) {
                 videos.push(videoId);
                 let li = document.createElement('li');
-                li.textContent = `Video: ${videoId}`;                     // edit to display URL
+                li.textContent = `Track ${trackNumber}: ${videoId}`;  // Display the track number and video ID
                 document.getElementById('playlist').appendChild(li);
                 document.getElementById('videoUrl').value = '';
+
+            trackNumber++;  // Increment the track number after adding the video
+    }
+}
+        /*function addVideo() {
+            let url = document.getElementById('videoUrl').value;
+            let videoId = getYouTubeID(url);
+            if (videoId) {
+                videos.push(videoId);
+                let li = document.createElement('li');
+                li.textContent = `Track 1: ${videoId}`;                     
+                document.getElementById('playlist').appendChild(li);
+                document.getElementById('videoUrl').value = ''; */
             } else {
                 alert('Invalid YouTube URL');
             }
