@@ -60,6 +60,10 @@ h1 {
     margin-bottom: 20px;
 }
 
+input {
+  background-color: #B8C4D4;
+}
+
 /* Cassette Player Box */
 #player {
     display: none;
