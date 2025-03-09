@@ -56,7 +56,7 @@ body::before {
 /* Neon Glow for Title */
 h1 {
     font-size: 2rem;
-    text-shadow: 0 0 5px #ff66c4, 0 0 10px #ff66c4, 0 0 20px #ff66c4;
+    text-shadow: 0 0 5px #3599C8, 0 0 10px #3599C8, 0 0 20px #3599C8;
     margin-bottom: 20px;
 }
 
